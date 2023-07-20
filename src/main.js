@@ -7,8 +7,6 @@ import { ogg } from "./ogg.js";
 import { openai } from "./openai.js";
 import { initCommand, INITIAL_SESSION } from "./utils.js";
 
-console.log(config.get("TEST_ENV"));
-
 const bot = new Telegraf(config.get("TELEGRAM_TOKEN"));
 
 bot.use(session());
@@ -26,7 +24,7 @@ export async function processTextToChat(ctx, content) {
     });
     await ctx.reply(response.content);
   } catch (e) {
-    console.log("Error while proccesing text to gpt", e.message);
+    console.log("Error while processing text to gpt", e.message);
   }
 }
 
